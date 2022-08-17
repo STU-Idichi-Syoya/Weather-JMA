@@ -1,11 +1,11 @@
-package weatherapi
+package main
 
 import (
 	"encoding/json"
 	"net/http"
 	"strconv"
 
-	"Weather-API/repository"
+	"github.com/STU-Idichi-Syoya/Weather-JMA/repository"
 )
 
 type API_Params struct {

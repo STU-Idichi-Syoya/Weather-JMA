@@ -2,26 +2,18 @@ package repository
 
 import "testing"
 
-func TestGetWeather(t *testing.T) {
-	repo:=JMIRepository{}
-	weather,err:=repo.GetWeather(1.0,1.0)
-	if err!=nil{
-		t.Error(err)
-	}
-}
+func Test_Coordinate(t *testing.T){
+		
+	zoom:=14
+	lat:=36.104665
+	lon:=140.087099
+	ansTileX:=14567
+	ansTileY:=6427
+	x,y,_,_:=Latlon2TileCoordinate(lat,lon,zoom)
 
-func TestGetAvailableTime(t *testing.T) {
-	repo=JMIRepository{}
-	_,err:=repo.GetAvailableTime()
-	if err!=nil{
-		t.Error(err)
-	}
-}
-
-func TestGetWeather_error(t *testing.T) {
-	repo=JMIRepository{}
-	weather,err:=repo.GetWeather(1.0,1.0)
-	if err==nil{
-		t.Error("error expected")
+	if ansTileX==x && ansTileY==y{
+	}else{
+		t.Errorf("ansTileX:%d,x:%d,ansTileY:%d,y:%d",ansTileX,x,ansTileY,y)
+		t.Errorf("latitude should be between -90 and 90")
 	}
 }
