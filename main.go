@@ -33,7 +33,7 @@ func main(){
 	jmiRepository := &repository.JMIRepository{}
 
 	// http server
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api/weather/V1/place", func(w http.ResponseWriter, r *http.Request) {
 		// get params
 		params := API_Params{}
 		if err := getParams(r, &params); err != nil {
